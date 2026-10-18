@@ -1,0 +1,39 @@
+{
+  "id": "agent-communication-protocol",
+  "name": "Agent Communication Protocol",
+  "abbreviation": "ACP",
+  "layer": "agent",
+  "connects": "Clients, people or other agents to agents hosted on an ACP server.",
+  "author": "IBM Research",
+  "steward": "Linux Foundation",
+  "status": "merged",
+  "version": "0.2.0",
+  "versioning": "semver",
+  "spec": "https://agentcommunicationprotocol.dev",
+  "repository": "https://github.com/i-am-bee/acp",
+  "schema": "https://github.com/i-am-bee/acp/blob/main/docs/spec/openapi.yaml",
+  "transports": [
+    "HTTP"
+  ],
+  "encoding": "REST JSON",
+  "license": "Apache-2.0",
+  "sdks": [
+    "Python",
+    "TypeScript"
+  ],
+  "related": [
+    {
+      "id": "a2a",
+      "relation": "merged-into"
+    },
+    {
+      "id": "agent-client-protocol",
+      "relation": "name-clash"
+    },
+    {
+      "id": "agentic-commerce-protocol",
+      "relation": "name-clash"
+    }
+  ],
+  "checked": "2026-10-18"
+}

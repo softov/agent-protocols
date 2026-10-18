@@ -1,0 +1,26 @@
+{
+  "id": "agent-protocol",
+  "name": "Agent Protocol",
+  "abbreviation": "Agent Protocol",
+  "layer": "task",
+  "connects": "A client, benchmark or developer tool to one agent, through a common REST API for tasks and steps.",
+  "author": "Vasek Mlejnsky (E2B)",
+  "steward": "AGI, Inc.",
+  "status": "dormant",
+  "version": "v1",
+  "versioning": "integer",
+  "spec": "https://github.com/agi-inc/agent-protocol/blob/main/schemas/openapi.yml",
+  "repository": "https://github.com/agi-inc/agent-protocol",
+  "schema": "https://github.com/agi-inc/agent-protocol/blob/main/schemas/openapi.yml",
+  "transports": [
+    "HTTP"
+  ],
+  "encoding": "REST JSON",
+  "license": "MIT",
+  "sdks": [
+    "Python",
+    "JavaScript"
+  ],
+  "related": [],
+  "checked": "2026-10-18"
+}

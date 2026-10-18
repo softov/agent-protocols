@@ -1,0 +1,32 @@
+{
+  "id": "ahp",
+  "name": "Agent Host Protocol",
+  "abbreviation": "AHP",
+  "layer": "host",
+  "connects": "One or more clients to an agent host that runs agent sessions and keeps their state.",
+  "author": "Microsoft",
+  "steward": "Microsoft",
+  "status": "active",
+  "version": "1.0.0",
+  "released": "2026-10-02",
+  "versioning": "semver",
+  "spec": "https://microsoft.github.io/agent-host-protocol/",
+  "repository": "https://github.com/microsoft/agent-host-protocol",
+  "schema": "https://github.com/microsoft/agent-host-protocol/tree/main/schema",
+  "transports": [
+    "any reliable ordered bidirectional stream",
+    "WebSocket"
+  ],
+  "encoding": "JSON-RPC 2.0",
+  "license": "MIT",
+  "sdks": [
+    "TypeScript",
+    "Rust",
+    "Go",
+    "Kotlin",
+    "Swift",
+    ".NET"
+  ],
+  "related": [],
+  "checked": "2026-10-18"
+}

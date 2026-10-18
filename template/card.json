@@ -1,0 +1,26 @@
+{
+  "id": "abbr",
+  "name": "Full Name",
+  "abbreviation": "ABBR",
+  "layer": "context",
+  "connects": "Who talks to whom.",
+  "author": "Company",
+  "steward": "Body",
+  "status": "active",
+  "version": "1.0.0",
+  "released": "2026-01-01",
+  "versioning": "semver",
+  "spec": "https://example.org/spec",
+  "repository": "https://github.com/example/abbr",
+  "schema": "https://github.com/example/abbr/blob/main/schema.json",
+  "transports": [
+    "stdio"
+  ],
+  "encoding": "JSON-RPC 2.0",
+  "license": "MIT",
+  "sdks": [
+    "TypeScript"
+  ],
+  "related": [],
+  "checked": "2026-01-01"
+}

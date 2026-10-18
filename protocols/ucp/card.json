@@ -1,0 +1,40 @@
+{
+  "id": "ucp",
+  "name": "Universal Commerce Protocol",
+  "abbreviation": "UCP",
+  "layer": "commerce",
+  "connects": "Agents and apps to businesses, payment providers and credential providers, for catalog, cart, checkout and orders.",
+  "author": "Google and Shopify",
+  "steward": "UCP Governing Council",
+  "status": "active",
+  "version": "2026-08-25",
+  "released": "2026-08-25",
+  "versioning": "date",
+  "spec": "https://ucp.dev/latest/specification/overview/",
+  "repository": "https://github.com/Universal-Commerce-Protocol/ucp",
+  "schema": "https://github.com/Universal-Commerce-Protocol/ucp/tree/v2026-08-25/source/schemas",
+  "transports": [
+    "REST",
+    "MCP",
+    "A2A",
+    "Embedded Protocol"
+  ],
+  "encoding": "REST JSON; JSON-RPC 2.0 on MCP and Embedded",
+  "license": "Apache-2.0",
+  "sdks": [
+    "Python",
+    "JavaScript",
+    "Rust"
+  ],
+  "related": [
+    {
+      "id": "mcp",
+      "relation": "uses"
+    },
+    {
+      "id": "a2a",
+      "relation": "uses"
+    }
+  ],
+  "checked": "2026-10-18"
+}

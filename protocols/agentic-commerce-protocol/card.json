@@ -1,0 +1,37 @@
+{
+  "id": "agentic-commerce-protocol",
+  "name": "Agentic Commerce Protocol",
+  "abbreviation": "ACP",
+  "layer": "commerce",
+  "connects": "A buyer's AI agent to a seller's checkout, and to a payment provider for delegated payment tokens.",
+  "author": "OpenAI and Stripe",
+  "steward": "OpenAI and Stripe",
+  "status": "active",
+  "version": "2026-04-17",
+  "released": "2026-04-17",
+  "versioning": "date",
+  "spec": "https://agenticcommerce.dev",
+  "repository": "https://github.com/agentic-commerce-protocol/agentic-commerce-protocol",
+  "schema": "https://github.com/agentic-commerce-protocol/agentic-commerce-protocol/tree/main/spec/2026-04-17",
+  "transports": [
+    "HTTPS (REST)",
+    "MCP Streamable HTTP"
+  ],
+  "encoding": "REST JSON; JSON-RPC 2.0 on MCP",
+  "license": "Apache-2.0",
+  "related": [
+    {
+      "id": "mcp",
+      "relation": "uses"
+    },
+    {
+      "id": "agent-client-protocol",
+      "relation": "name-clash"
+    },
+    {
+      "id": "agent-communication-protocol",
+      "relation": "name-clash"
+    }
+  ],
+  "checked": "2026-10-18"
+}

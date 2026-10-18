@@ -1,0 +1,42 @@
+{
+  "id": "agent-client-protocol",
+  "name": "Agent Client Protocol",
+  "abbreviation": "ACP",
+  "layer": "client",
+  "connects": "A code editor to an AI coding agent it runs.",
+  "author": "Zed Industries",
+  "steward": "Zed Industries and JetBrains",
+  "status": "active",
+  "version": "1",
+  "versioning": "integer",
+  "spec": "https://agentclientprotocol.com/protocol/v1/overview",
+  "repository": "https://github.com/agentclientprotocol/agent-client-protocol",
+  "schema": "https://github.com/agentclientprotocol/agent-client-protocol/blob/main/schema/v1/schema.json",
+  "transports": [
+    "stdio"
+  ],
+  "encoding": "JSON-RPC 2.0",
+  "license": "Apache-2.0",
+  "sdks": [
+    "Rust",
+    "TypeScript",
+    "Python",
+    "Kotlin",
+    "Java"
+  ],
+  "related": [
+    {
+      "id": "mcp",
+      "relation": "uses"
+    },
+    {
+      "id": "agent-communication-protocol",
+      "relation": "name-clash"
+    },
+    {
+      "id": "agentic-commerce-protocol",
+      "relation": "name-clash"
+    }
+  ],
+  "checked": "2026-10-18"
+}

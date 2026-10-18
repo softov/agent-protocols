@@ -1,0 +1,44 @@
+{
+  "id": "a2ui",
+  "name": "Agent-to-User Interface",
+  "abbreviation": "A2UI",
+  "layer": "interface",
+  "connects": "An agent to a client renderer that draws the user interface the agent describes.",
+  "author": "Google",
+  "steward": "A2UI project",
+  "status": "active",
+  "version": "v0.9.1",
+  "released": "2026-05-29",
+  "versioning": "semver",
+  "spec": "https://a2ui.org/specification/v0.9.1-a2ui/",
+  "repository": "https://github.com/a2ui-project/a2ui",
+  "schema": "https://github.com/a2ui-project/a2ui/tree/main/specification/v0_9_1/json",
+  "transports": [
+    "A2A",
+    "AG-UI",
+    "MCP",
+    "Server-Sent Events",
+    "WebSocket",
+    "REST"
+  ],
+  "encoding": "JSON messages, often JSON Lines",
+  "license": "Apache-2.0",
+  "sdks": [
+    "TypeScript",
+    "Python",
+    "Dart",
+    "Swift",
+    "Kotlin"
+  ],
+  "related": [
+    {
+      "id": "a2a",
+      "relation": "uses"
+    },
+    {
+      "id": "ag-ui",
+      "relation": "uses"
+    }
+  ],
+  "checked": "2026-10-18"
+}

@@ -1,0 +1,36 @@
+{
+  "id": "mcp",
+  "name": "Model Context Protocol",
+  "abbreviation": "MCP",
+  "layer": "context",
+  "connects": "An AI application to servers that expose tools, data and prompts.",
+  "author": "Anthropic",
+  "steward": "Agentic AI Foundation (Linux Foundation)",
+  "status": "active",
+  "version": "2026-07-28",
+  "released": "2026-07-28",
+  "versioning": "date",
+  "spec": "https://modelcontextprotocol.io/specification/2026-07-28",
+  "repository": "https://github.com/modelcontextprotocol/modelcontextprotocol",
+  "schema": "https://github.com/modelcontextprotocol/modelcontextprotocol/tree/main/schema/2026-07-28",
+  "transports": [
+    "stdio",
+    "Streamable HTTP"
+  ],
+  "encoding": "JSON-RPC 2.0",
+  "license": "Apache-2.0",
+  "sdks": [
+    "TypeScript",
+    "Python",
+    "C#",
+    "Go",
+    "Rust",
+    "Ruby",
+    "Java",
+    "Swift",
+    "PHP",
+    "Kotlin"
+  ],
+  "related": [],
+  "checked": "2026-10-18"
+}

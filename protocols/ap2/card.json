@@ -1,0 +1,36 @@
+{
+  "id": "ap2",
+  "name": "Agent Payments Protocol",
+  "abbreviation": "AP2",
+  "layer": "commerce",
+  "connects": "A shopping agent, a merchant, a credential provider and a payment processor, with signed proof that the user authorized the payment.",
+  "author": "Google",
+  "steward": "FIDO Alliance",
+  "status": "active",
+  "version": "0.2.0",
+  "released": "2026-04-28",
+  "versioning": "semver",
+  "spec": "https://ap2-protocol.org/",
+  "repository": "https://github.com/google-agentic-commerce/AP2",
+  "schema": "https://github.com/google-agentic-commerce/AP2/tree/main/code/sdk/schemas/ap2",
+  "transports": [
+    "A2A",
+    "UCP"
+  ],
+  "encoding": "SD-JWT verifiable credentials",
+  "license": "Apache-2.0",
+  "sdks": [
+    "Python"
+  ],
+  "related": [
+    {
+      "id": "a2a",
+      "relation": "extends"
+    },
+    {
+      "id": "ucp",
+      "relation": "extends"
+    }
+  ],
+  "checked": "2026-10-18"
+}

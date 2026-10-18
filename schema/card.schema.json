@@ -1,0 +1,163 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/softov/agent-protocols/schema/card.schema.json",
+  "title": "Protocol card",
+  "description": "Fixed facts about one agent protocol. Every protocol in protocols/ has one card.json that conforms to this schema.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "name",
+    "abbreviation",
+    "layer",
+    "connects",
+    "author",
+    "steward",
+    "status",
+    "version",
+    "versioning",
+    "spec",
+    "repository",
+    "transports",
+    "encoding",
+    "license",
+    "checked"
+  ],
+  "properties": {
+    "id": {
+      "description": "Folder name under protocols/.",
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]*$"
+    },
+    "name": {
+      "description": "Full name as the upstream spec writes it.",
+      "type": "string"
+    },
+    "abbreviation": {
+      "description": "Short name as the upstream spec writes it.",
+      "type": "string"
+    },
+    "layer": {
+      "description": "Which two parties the protocol sits between. See README.md, Layers.",
+      "enum": [
+        "context",
+        "agent",
+        "interface",
+        "client",
+        "host",
+        "commerce",
+        "task"
+      ]
+    },
+    "connects": {
+      "description": "Who talks to whom, in one sentence.",
+      "type": "string"
+    },
+    "author": {
+      "description": "Company or group that first published the protocol.",
+      "type": "string"
+    },
+    "steward": {
+      "description": "Body that governs the protocol today.",
+      "type": "string"
+    },
+    "status": {
+      "description": "active: maintained. dormant: not archived, but no change to the spec for over a year. merged: folded into another protocol, see related. archived: upstream stopped.",
+      "enum": [
+        "active",
+        "dormant",
+        "merged",
+        "archived"
+      ]
+    },
+    "version": {
+      "description": "Latest released spec version, as upstream names it.",
+      "type": "string"
+    },
+    "released": {
+      "description": "Release date of that version, YYYY-MM-DD. Left out when upstream does not state it.",
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "versioning": {
+      "description": "How upstream names versions. date: YYYY-MM-DD. semver: MAJOR.MINOR.PATCH. major-minor: MAJOR.MINOR. integer: one number per major version.",
+      "enum": [
+        "date",
+        "semver",
+        "major-minor",
+        "integer",
+        "none"
+      ]
+    },
+    "spec": {
+      "description": "URL of the specification.",
+      "type": "string",
+      "format": "uri"
+    },
+    "repository": {
+      "description": "URL of the upstream source repository.",
+      "type": "string",
+      "format": "uri"
+    },
+    "schema": {
+      "description": "URL of the machine-readable schema (JSON Schema, OpenAPI, protobuf, type definitions).",
+      "type": "string",
+      "format": "uri"
+    },
+    "transports": {
+      "description": "Transports the spec defines.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "encoding": {
+      "description": "Message encoding on the wire.",
+      "type": "string"
+    },
+    "license": {
+      "description": "SPDX identifier of the spec license.",
+      "type": "string"
+    },
+    "sdks": {
+      "description": "Languages with an official SDK.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "related": {
+      "description": "Relations to other protocols in this collection.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "relation"
+        ],
+        "properties": {
+          "id": {
+            "description": "id of the other protocol.",
+            "type": "string"
+          },
+          "relation": {
+            "description": "merged-into: this protocol continues as the other. extends: this protocol builds on the other. uses: this protocol carries or depends on the other. name-clash: same abbreviation, unrelated protocol.",
+            "enum": [
+              "merged-into",
+              "extends",
+              "uses",
+              "name-clash"
+            ]
+          }
+        }
+      }
+    },
+    "checked": {
+      "description": "Date the card was last compared with upstream, YYYY-MM-DD.",
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    }
+  }
+}

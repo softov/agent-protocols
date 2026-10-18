@@ -1,0 +1,29 @@
+{
+  "id": "ag-ui",
+  "name": "Agent-User Interaction Protocol",
+  "abbreviation": "AG-UI",
+  "layer": "interface",
+  "connects": "An agent backend to the user-facing application that shows its runs.",
+  "author": "CopilotKit",
+  "steward": "CopilotKit",
+  "status": "active",
+  "version": "1.0",
+  "released": "2026-09-17",
+  "versioning": "major-minor",
+  "spec": "https://docs.ag-ui.com/spec/1.0",
+  "repository": "https://github.com/ag-ui-protocol/ag-ui",
+  "schema": "https://github.com/ag-ui-protocol/ag-ui/blob/main/spec/1.0/schema.json",
+  "transports": [
+    "HTTP with Server-Sent Events",
+    "HTTP with Protocol Buffers"
+  ],
+  "encoding": "JSON event stream",
+  "license": "MIT",
+  "sdks": [
+    "TypeScript",
+    "Python",
+    ".NET"
+  ],
+  "related": [],
+  "checked": "2026-10-18"
+}

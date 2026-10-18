@@ -1,0 +1,31 @@
+{
+  "id": "mcp-apps",
+  "name": "MCP Apps",
+  "abbreviation": "MCP Apps",
+  "layer": "interface",
+  "connects": "An MCP server's interactive views to the host that renders them.",
+  "author": "MCP-UI and the Model Context Protocol project",
+  "steward": "Agentic AI Foundation (Linux Foundation)",
+  "status": "active",
+  "version": "2026-01-26",
+  "released": "2026-01-26",
+  "versioning": "date",
+  "spec": "https://github.com/modelcontextprotocol/ext-apps/blob/main/specification/2026-01-26/apps.mdx",
+  "repository": "https://github.com/modelcontextprotocol/ext-apps",
+  "schema": "https://github.com/modelcontextprotocol/ext-apps/blob/main/src/spec.types.ts",
+  "transports": [
+    "postMessage"
+  ],
+  "encoding": "JSON-RPC 2.0",
+  "license": "Apache-2.0",
+  "sdks": [
+    "TypeScript"
+  ],
+  "related": [
+    {
+      "id": "mcp",
+      "relation": "extends"
+    }
+  ],
+  "checked": "2026-10-18"
+}
