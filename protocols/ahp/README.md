@@ -61,6 +61,20 @@ Names that start with `x-` are reserved for implementation extensions.
 4. From then on the client subscribes and unsubscribes channels, sends commands and dispatches actions. The server streams actions for every subscribed channel.
 5. After a dropped connection the client sends `reconnect` with its `clientId` and the last `serverSeq` it saw, and the server replays what it missed or sends fresh snapshots.
 
+```mermaid
+sequenceDiagram
+    participant C as Client
+    participant H as Agent host
+    C->>H: initialize, versions, clientId, channels
+    H-->>C: version, serverSeq, snapshots
+    C->>H: subscribe, commands
+    C-)H: dispatchAction, clientSeq
+    H-)C: action, serverSeq, per channel
+    Note over C,H: the connection drops
+    C->>H: reconnect, clientId and last serverSeq
+    H-->>C: missed actions, or fresh snapshots
+```
+
 ## Discovery
 
 None defined. The client reaches the host at an address agreed out of band. Once connected, the agents the host offers are listed in the state of `ahp-root://`.

@@ -45,6 +45,19 @@ There is no handshake. The client starts a run with `POST /runs`, naming the age
 
 A run moves through the states created, in-progress, awaiting, cancelling, completed and failed. In the awaiting state the agent waits for input from the client, and the client resumes the run with that input. A `session_id` keeps state across runs for stateful agents.
 
+```mermaid
+sequenceDiagram
+    participant C as Client
+    participant S as Server
+    C->>S: GET /agents
+    S-->>C: agents
+    C->>S: POST /runs, agent and input messages
+    S-->>C: run, or an SSE event stream
+    Note over S: run state awaiting
+    C->>S: resume the run, with input
+    S-->>C: run state completed
+```
+
 ## Discovery
 
 - `GET /agents` lists the agents on a server.

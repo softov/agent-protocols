@@ -56,6 +56,26 @@ The client can pass MCP servers to the agent when it creates a session.
 4. The client creates a session with `session/new`, or reopens one with `session/load`.
 5. Each `session/prompt` is one turn. The agent streams `session/update` notifications and calls client methods as it works, and the prompt request returns when the turn ends.
 
+```mermaid
+sequenceDiagram
+    participant C as Client (editor)
+    participant A as Agent
+    C->>A: start the agent process
+    C->>A: initialize, version and capabilities
+    A-->>C: version, capabilities, authMethods
+    C->>A: authenticate, if needed
+    C->>A: session/new
+    A-->>C: sessionId
+    C->>A: session/prompt
+    A-)C: session/update
+    A->>C: session/request_permission
+    C-->>A: the user's choice
+    A->>C: fs/read_text_file
+    C-->>A: file content
+    A-)C: session/update
+    A-->>C: prompt result, the turn is over
+```
+
 ## Discovery
 
 The ACP Registry lists agents with their install metadata: <https://cdn.agentclientprotocol.com/registry/v1/latest/registry.json>.

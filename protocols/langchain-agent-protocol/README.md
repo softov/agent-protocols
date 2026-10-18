@@ -52,6 +52,23 @@ For one-shot work, `POST /runs/wait` or `POST /runs/stream` runs without a lasti
 
 To stream over SSE, the client opens `POST /threads/{thread_id}/stream` with the channels and namespaces it wants, and sends commands to `POST /threads/{thread_id}/commands`. Over WebSocket, `GET /threads/{thread_id}/stream` upgrades the connection, and commands and events share it. A client that reconnects asks for missed events by sequence number.
 
+```mermaid
+sequenceDiagram
+    participant C as Client
+    participant S as Server
+    C->>S: POST /threads
+    S-->>C: Thread
+    C->>S: POST /runs, thread_id and input
+    S-->>C: Run, status pending
+    alt wait
+        C->>S: GET /runs/{run_id}/wait
+        S-->>C: final output
+    else stream
+        C->>S: GET /runs/{run_id}/stream
+        S-)C: output as it is produced
+    end
+```
+
 ## Discovery
 
 None defined. `POST /agents/search` lists the agents on a known server.

@@ -54,6 +54,25 @@ There is no handshake.
 
 `contextId` groups related tasks and messages into one conversation.
 
+```mermaid
+sequenceDiagram
+    participant C as Client
+    participant A as Remote agent
+    C->>A: GET /.well-known/agent-card.json
+    A-->>C: Agent Card
+    C->>A: SendMessage
+    A-->>C: Message, or Task
+    alt polling
+        C->>A: GetTask
+        A-->>C: Task status
+    else streaming
+        C->>A: SubscribeToTask
+        A-)C: status and artifact updates
+    else push
+        A-)C: notification to the client's webhook
+    end
+```
+
 ## Discovery
 
 The Agent Card. An agent publishes it at `https://{domain}/.well-known/agent-card.json`. Clients can also get cards from a registry or catalog, or by direct configuration. An authenticated client can ask for a fuller card with `GetExtendedAgentCard`.

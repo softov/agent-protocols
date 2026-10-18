@@ -60,6 +60,20 @@ State that must survive between calls is passed as explicit handles in tool argu
 
 Versions up to 2025-11-25 used an `initialize` request and an `Mcp-Session-Id` header. Those versions are legacy.
 
+```mermaid
+sequenceDiagram
+    participant C as Client
+    participant S as Server
+    C->>S: server/discover
+    S-->>C: versions, capabilities, identity
+    C->>S: request, with version and capabilities in _meta
+    S-->>C: result, with server identity in _meta
+    C->>S: tools/call
+    S-->>C: resultType input_required, inputRequests
+    C->>S: tools/call again, with inputResponses
+    S-->>C: resultType complete
+```
+
 ## Discovery
 
 `server/discover` describes a server once the client can reach it. The spec does not define how a client finds servers.

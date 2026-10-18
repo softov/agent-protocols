@@ -48,6 +48,24 @@ JSON. Amounts are in minor units. The spec is described in OpenAPI and JSON Sche
 5. It completes the session with that token.
 6. The seller reports order progress by webhook.
 
+```mermaid
+sequenceDiagram
+    participant A as Agent
+    participant S as Seller
+    participant P as Payment provider
+    A->>S: GET /.well-known/acp.json
+    S-->>A: versions, base URL, services
+    A->>S: POST /checkout_sessions
+    S-->>A: checkout session
+    A->>S: POST /checkout_sessions/{id}, updates
+    S-->>A: status ready_for_payment
+    A->>P: POST /agentic_commerce/delegate_payment
+    P-->>A: payment token
+    A->>S: POST /checkout_sessions/{id}/complete, with the token
+    S-->>A: checkout session, completed
+    S-)A: order webhooks
+```
+
 ## Discovery
 
 `GET /.well-known/acp.json`, without authentication. It lists the protocol versions, the API base URL, the transports and the services.

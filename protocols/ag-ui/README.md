@@ -54,6 +54,16 @@ There is no handshake. One request is one run.
 
 A broken stream cannot be resumed.
 
+```mermaid
+sequenceDiagram
+    participant C as Consumer
+    participant P as Producer
+    C->>P: POST RunAgentInput
+    P-)C: RUN_STARTED
+    P-)C: TEXT_MESSAGE_*, TOOL_CALL_*, STATE_* and other events
+    P-)C: RUN_FINISHED or RUN_ERROR
+```
+
 ## Discovery
 
 None defined. The spec defines an `AgentCapabilities` declaration (identity, transport, tools, state, multiple agents, reasoning, multimodal input) but no way for a consumer to fetch it, and no binding in 1.0 carries it.

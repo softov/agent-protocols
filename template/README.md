@@ -30,6 +30,17 @@ The encoding, and the message kinds or primitives. A list with one line each is 
 
 How a connection or session starts, runs and ends. Handshake first.
 
+Then the same steps as a Mermaid sequence diagram, with nothing the page does not say. `->>` is a request, `-->>` a response, `-)` a notification or push.
+
+```mermaid
+sequenceDiagram
+    participant C as Client
+    participant S as Server
+    C->>S: request
+    S-->>C: response
+    S-)C: notification
+```
+
 ## Discovery
 
 How one party finds the other and learns what it can do. Write "None defined." if the spec has none.

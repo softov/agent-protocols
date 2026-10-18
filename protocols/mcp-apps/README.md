@@ -48,6 +48,28 @@ The host passes theme values to the view as CSS variables.
 5. The view works with the user, calls tools and sends messages through the host.
 6. The host sends `ui/resource-teardown` before it removes the view.
 
+```mermaid
+sequenceDiagram
+    participant V as View
+    participant H as Host
+    participant S as MCP server
+    H->>S: tools/list, resources/list
+    S-->>H: tools, and ui:// views
+    H->>S: tools/call
+    H->>V: load the view in a sandboxed iframe
+    V->>H: ui/initialize
+    H-->>V: host context and capabilities
+    V-)H: ui/notifications/initialized
+    H-)V: ui/notifications/tool-input
+    S-->>H: tool result
+    H-)V: ui/notifications/tool-result
+    V->>H: tools/call
+    H->>S: tools/call
+    S-->>H: result
+    H-->>V: result
+    H->>V: ui/resource-teardown
+```
+
 ## Discovery
 
 Through MCP. Views appear in `resources/list`, and tools reference them in `tools/list`. The host declares support under the extension id `io.modelcontextprotocol/ui` in its client capabilities, with the MIME types it can render.

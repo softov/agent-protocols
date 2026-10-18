@@ -71,7 +71,7 @@ tools/index.py             checks the cards and writes the index above
 ## Adding a protocol
 
 1. Copy `template/` to `protocols/<id>/`. The id is the abbreviation in lower case, made unique where names clash.
-2. Fill in `card.json` and `README.md` from the upstream specification. Link the source of every example.
+2. Fill in `card.json` and `README.md` from the upstream specification. Link the source of every example. Draw the Connection steps as a Mermaid sequence diagram.
 3. Set `checked` to the date you compared the card with upstream.
 4. Run `tools/index.py`. It checks every card and rewrites the index.
 

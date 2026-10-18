@@ -54,6 +54,29 @@ With the user present:
 
 Without the user present, the user signs open mandates beforehand, and the agent's key signs the closed mandates within their constraints. If a constraint cannot be met, the user is asked again.
 
+```mermaid
+sequenceDiagram
+    participant U as Trusted surface
+    participant A as Shopping agent
+    participant M as Merchant
+    participant CP as Credential provider
+    participant PP as Processor
+    Note over A,M: carried in A2A or UCP
+    A->>M: build a cart
+    M-->>A: signed Checkout JWT
+    A->>CP: payment options
+    CP-->>A: options
+    A->>U: checkout and payment to approve
+    U-->>A: Checkout Mandate and Payment Mandate, signed by the user
+    A->>CP: Payment Mandate
+    CP-->>A: payment token
+    A->>M: token and Checkout Mandate
+    M->>PP: process the payment
+    Note over PP: checks the Payment Mandate is bound to this checkout
+    PP-->>M: payment receipt
+    M-->>A: checkout receipt and payment receipt
+```
+
 ## Discovery
 
 None in AP2. An A2A agent declares support as an Agent Card extension. A UCP business declares it in its profile.

@@ -45,6 +45,19 @@ Client to server:
 
 There is no A2UI handshake. The server sends `createSurface`, then `updateComponents` and `updateDataModel` as often as it needs, and finally `deleteSurface`. Components bind to paths in the data model, so a data update changes the view without resending components.
 
+```mermaid
+sequenceDiagram
+    participant S as Agent
+    participant R as Renderer
+    Note over S,R: carried in A2A, AG-UI or another protocol
+    S-)R: createSurface, with the catalog
+    S-)R: updateComponents
+    S-)R: updateDataModel
+    R-)S: action
+    S-)R: updateDataModel
+    S-)R: deleteSurface
+```
+
 ## Discovery
 
 Through the carrier. The server lists its catalogs in its capabilities, for example in an A2A Agent Card. The client sends `a2uiClientCapabilities`, with the catalogs it supports, in the metadata of each A2A message.

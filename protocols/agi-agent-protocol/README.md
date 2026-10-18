@@ -43,6 +43,20 @@ Endpoints:
 
 There is no handshake. The client creates a task with its input. Each `POST` to the task's steps runs the next step and returns it. The client repeats until a step is marked as the last.
 
+```mermaid
+sequenceDiagram
+    participant C as Client
+    participant A as Agent
+    C->>A: POST /ap/v1/agent/tasks, input
+    A-->>C: Task
+    loop until a step is the last
+        C->>A: POST /ap/v1/agent/tasks/{task_id}/steps
+        A-->>C: Step
+    end
+    C->>A: GET /ap/v1/agent/tasks/{task_id}/artifacts
+    A-->>C: artifacts
+```
+
 ## Discovery
 
 None defined.

@@ -55,6 +55,22 @@ Every response carries a `ucp` object with the version, the capabilities in use 
 4. The checkout runs through the operations above.
 5. The business sends order updates to the platform by signed webhook.
 
+```mermaid
+sequenceDiagram
+    participant P as Platform
+    participant B as Business
+    P->>B: GET /.well-known/ucp
+    B-->>P: business profile
+    P->>B: POST /checkout-sessions, UCP-Agent names the platform profile
+    Note over B: uses only the capabilities both profiles list
+    B-->>P: checkout, with the ucp object
+    P->>B: PUT /checkout-sessions/{id}
+    B-->>P: checkout
+    P->>B: POST /checkout-sessions/{id}/complete
+    B-->>P: checkout
+    B-)P: order webhooks, signed
+```
+
 ## Discovery
 
 The business profile at `/.well-known/ucp`. It lists services, capabilities, payment handlers and signing keys (JWK).

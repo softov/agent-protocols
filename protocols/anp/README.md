@@ -41,6 +41,21 @@ Authorization, protocol negotiation and payments are still drafts.
 3. Read the description to learn its interfaces.
 4. Call an interface with a request signed by your DID, or send it messages under a messaging profile.
 
+```mermaid
+sequenceDiagram
+    participant A as Calling agent
+    participant B as Other agent
+    A->>B: resolve DID or handle
+    A->>B: GET /.well-known/agent-descriptions
+    B-->>A: list of Agent Descriptions
+    A->>B: GET Agent Description
+    B-->>A: JSON-LD, with interfaces
+    A->>B: call an interface, signed with the DID key
+    B-->>A: result, and an access token
+    A->>B: next call, with the Bearer token
+    B-->>A: result
+```
+
 ## Discovery
 
 - **Active.** `GET https://{domain}/.well-known/agent-descriptions` returns a JSON-LD page listing the agent descriptions on that domain, with a `next` link for more.
