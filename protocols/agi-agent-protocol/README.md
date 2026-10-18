@@ -1,8 +1,8 @@
-# Agent Protocol
+# Agent Protocol (AGI, Inc.)
 
 Agent Protocol is a common REST API for talking to one agent. A client creates a task, then asks the agent to run it one step at a time, and reads the files the agent produces. It was made so that benchmarks and developer tools could drive any agent the same way.
 
-The protocol has not changed since December 2023. The repository is not archived.
+The protocol has not changed since December 2023. The repository is not archived. A protocol from LangChain has the same name: see [Agent Protocol (LangChain)](../langchain-agent-protocol/).
 
 | | |
 | --- | --- |

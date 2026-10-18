@@ -1,0 +1,33 @@
+{
+  "id": "langchain-agent-protocol",
+  "name": "Agent Protocol",
+  "abbreviation": "Agent Protocol",
+  "layer": "host",
+  "connects": "Clients to a server that runs agents, keeps their threads and state, and streams their output.",
+  "author": "LangChain",
+  "steward": "LangChain",
+  "status": "active",
+  "version": "0.1.6",
+  "versioning": "semver",
+  "spec": "https://langchain-ai.github.io/agent-protocol/api.html",
+  "repository": "https://github.com/langchain-ai/agent-protocol",
+  "schema": "https://github.com/langchain-ai/agent-protocol/blob/main/openapi.json",
+  "transports": [
+    "HTTP",
+    "SSE",
+    "WebSocket"
+  ],
+  "encoding": "REST JSON",
+  "license": "MIT",
+  "sdks": [
+    "Python",
+    "TypeScript"
+  ],
+  "related": [
+    {
+      "id": "agi-agent-protocol",
+      "relation": "name-clash"
+    }
+  ],
+  "checked": "2026-10-18"
+}

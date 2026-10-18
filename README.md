@@ -6,6 +6,8 @@ Each protocol has one folder. The folder says what the protocol connects, how a 
 
 This repository holds no code that speaks any protocol. It is not an SDK, a gateway or a ranking.
 
+[COMPARE.md](COMPARE.md) puts the protocols side by side: parties, wire, state, what each carries, discovery and authentication.
+
 ## Index
 
 <!-- index:start -->
@@ -19,8 +21,9 @@ This repository holds no code that speaks any protocol. It is not an SDK, a gate
 | [AG-UI](protocols/ag-ui/) | Agent-User Interaction Protocol | interface | CopilotKit | 1.0 | active |
 | [MCP Apps](protocols/mcp-apps/) | MCP Apps | interface | Agentic AI Foundation (Linux Foundation) | 2026-01-26 | active |
 | [ACP](protocols/agent-client-protocol/) | Agent Client Protocol | client | Zed Industries and JetBrains | 1 | active |
+| [Agent Protocol](protocols/langchain-agent-protocol/) | Agent Protocol | host | LangChain | 0.1.6 | active |
 | [AHP](protocols/ahp/) | Agent Host Protocol | host | Microsoft | 1.0.0 | active |
-| [Agent Protocol](protocols/agent-protocol/) | Agent Protocol | task | AGI, Inc. | v1 | dormant |
+| [Agent Protocol](protocols/agi-agent-protocol/) | Agent Protocol | task | AGI, Inc. | v1 | dormant |
 | [ACP](protocols/agentic-commerce-protocol/) | Agentic Commerce Protocol | commerce | OpenAI and Stripe | 2026-04-17 | active |
 | [AP2](protocols/ap2/) | Agent Payments Protocol | commerce | FIDO Alliance | 0.2.0 | active |
 | [UCP](protocols/ucp/) | Universal Commerce Protocol | commerce | UCP Governing Council | 2026-08-25 | active |
@@ -49,11 +52,15 @@ Some abbreviations name more than one protocol. Each folder is named for one pro
 | ACP | Agent Client Protocol, from Zed. Editors and coding agents. | [agent-client-protocol](protocols/agent-client-protocol/) |
 | ACP | Agent Communication Protocol, from IBM Research. Agent to agent, merged into A2A. | [agent-communication-protocol](protocols/agent-communication-protocol/) |
 | ACP | Agentic Commerce Protocol, from OpenAI and Stripe. Agent checkout. | [agentic-commerce-protocol](protocols/agentic-commerce-protocol/) |
-| Agent Protocol | The REST API for tasks and steps, now kept by AGI, Inc. The name does not mean agent protocols in general. | [agent-protocol](protocols/agent-protocol/) |
+| Agent Protocol | The REST API for tasks and steps, now kept by AGI, Inc. | [agi-agent-protocol](protocols/agi-agent-protocol/) |
+| Agent Protocol | LangChain's REST API for serving agents: runs, threads, store and streaming. | [langchain-agent-protocol](protocols/langchain-agent-protocol/) |
+
+"Agent protocol" is also used for agent protocols in general. Here it names only these two.
 
 ## Layout
 
 ```
+COMPARE.md                 the protocols side by side
 protocols/<id>/README.md   how the protocol works
 protocols/<id>/card.json   fixed facts: steward, version, status, links
 schema/card.schema.json    the fields a card.json must have

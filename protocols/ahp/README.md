@@ -47,6 +47,10 @@ Message kinds:
 - **Protocol notifications.** `root/sessionAdded`, `root/sessionRemoved`, `auth/required` and others.
 - **Server to client requests.** The server can call the `resource*` operations on the client, to read and write the client's files.
 
+Tools come from both sides. The session state lists the host's tools in `serverTools`. A client joins a session as an active client with `session/activeClientSet` and publishes its own tools there; when the agent calls one, that client runs it and reports the result. User messages can carry attachments, either inline as base64 data or as a URI the agent reads with `resourceRead`.
+
+A sub-agent is a chat of its own. The tool call that spawns it returns the worker chat's URI, and the worker chat records that tool call as its origin. A worker chat can be read-only or hidden from the user. Sub-agents and background shells that outlive a turn are listed in the parent chat's state.
+
 Names that start with `x-` are reserved for implementation extensions.
 
 ## Connection

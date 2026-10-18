@@ -1,5 +1,5 @@
 {
-  "id": "agent-protocol",
+  "id": "agi-agent-protocol",
   "name": "Agent Protocol",
   "abbreviation": "Agent Protocol",
   "layer": "task",
@@ -21,6 +21,11 @@
     "Python",
     "JavaScript"
   ],
-  "related": [],
+  "related": [
+    {
+      "id": "langchain-agent-protocol",
+      "relation": "name-clash"
+    }
+  ],
   "checked": "2026-10-18"
 }
